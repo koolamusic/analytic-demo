@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import { connect } from 'react-redux';
 import PageWrapper from 'lib/components/layout/wizard';
 import Items from './Item';
-import * as PageActions from '../modules/actions';
+import * as PageActions from './actions';
 import * as validators from 'lib/utils/validators';
 
 // ==================== import peer dependencies for this component =================

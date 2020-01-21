@@ -4,7 +4,7 @@ import { reduxForm, Form } from 'redux-form';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
 import PageWrapper from 'lib/components/layout/wizard';
-import * as PageActions from '../modules/actions';
+import * as PageActions from './actions';
 
 // ==================== import peer dependencies for this component =================
 import { StyledPageHeader, WrappedIcon, UserAvatar } from 'lib/components/extend';

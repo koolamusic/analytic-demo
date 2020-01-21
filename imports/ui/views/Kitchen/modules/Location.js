@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { Modal, Col, PageHeader, Icon, Input, Card, Button } from 'antd';
 import { reduxForm, Form } from 'redux-form';
 import { connect } from 'react-redux';
-import * as PageActions from '../modules/actions';
+import * as PageActions from './actions';
 
 // =========== peer dependencies ===============
 import { LargeText, Section } from 'lib/components/snippets';

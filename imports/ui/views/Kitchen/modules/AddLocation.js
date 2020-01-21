@@ -5,7 +5,7 @@ import { PageHeader, Col, Input } from 'antd';
 import { LargeText } from 'lib/components/snippets';
 import { reduxForm, Form } from 'redux-form';
 import { connect } from 'react-redux';
-import * as PageActions from '../modules/actions';
+import * as PageActions from './actions';
 import NewLocationForm from 'lib/components/addLocationForm';
 // ==================== import dependencies for this component =================
 

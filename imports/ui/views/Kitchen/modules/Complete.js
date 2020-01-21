@@ -3,7 +3,7 @@ import React, { Component, Fragment } from 'react';
 import { HorizontalSpacer } from 'lib/components/snippets';
 import { reduxForm, Form } from 'redux-form';
 import { connect } from 'react-redux';
-import * as PageActions from '../modules/actions';
+import * as PageActions from './actions';
 import styled from 'styled-components';
 import { colors } from 'config/constants';
 import PageWrapper from 'lib/components/layout/wizard';

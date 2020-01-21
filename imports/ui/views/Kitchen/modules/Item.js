@@ -22,7 +22,7 @@ import {
 	HorizontalSpacer
 } from 'lib/components/snippets';
 import { AddressCards } from 'lib/components/cards';
-import * as PageActions from '../modules/actions';
+import * as PageActions from './actions';
 import * as validators from 'lib/utils/validators';
 import { CheckField, TextAreaField, NumberField } from 'lib/components/inputs';
 import { DashedItem } from 'lib/components/grid';
