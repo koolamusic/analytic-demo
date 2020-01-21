@@ -1,33 +1,28 @@
 import React from 'react'
-import { Input as Field, Button } from '@chakra-ui/core'
+import { useHistory } from 'react-router-dom';
+
+import { RadioGroup, Radio, Box, Heading, Button } from '@chakra-ui/core'
 
 const WizardFormFirstPage: React.FunctionComponent = (props: any) => {
-    const onSubmit = (e: any): void => {
-        e.preventDefault()
-        console.log(props);
-        return props.handleSubmit(e)
-    }
+    const history = useHistory();
 
     return (
-        <form onSubmit={onSubmit}>
-            <h1>PAGE ONE</h1>
-            <Field
-                name="firstName"
-                type="text"
-                size="lg"
-                placeholder="First Name"
-            />
-            <Field
-                name="lastName"
-                type="text"
-                size="lg"
-                placeholder="Last Name"
-            />
-            <div>
-                <Button type="submit" className="next">   Next </Button>
-            </div>
-        </form>
-    )
+        <Box p={4}>
+            <Heading as="h4" size="md">Select the Menu to Change</Heading>
+            <br/>
+            <RadioGroup onChange={e => {
+                props.updateState('menu', e.target.value);
+            }}>
+                <Radio value="breakfast">BreakFast</Radio>
+                <Radio value="lunch">Lunch</Radio>
+                <Radio value="supper">Supper</Radio>
+            </RadioGroup>
+            <br/>
+            <Button type="button" className="next" onClick={() => {
+                history.push('/kitchen/food');
+            }}>Next</Button>
+        </Box>
+    );
 }
 
 export default WizardFormFirstPage

@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import { Switch, Route } from 'react-router-dom';
+
 import WizardFormFirstPage from './MenuItem';
 import WizardFormSecondPage from './FoodItem';
 import WizardFormThirdPage from './OriginForm';
@@ -8,35 +10,31 @@ import WizardFormLastPage from './RecipeForm';
 export default class Kitchen extends Component {
 	constructor(props: any) {
 		super(props);
-		this.nextPage = this.nextPage.bind(this);
-		this.previousPage = this.previousPage.bind(this);
 		this.state = {
-			page: 1
-		};
-	}
-	nextPage(e) {
-		e.preventDefault()
-		this.setState({ page: this.state.page + 1 });
+			menu: '',
+			food: '',
+			nutrition: '',
+			country: '',
+			recipe: '',
+		}
 	}
 
-	previousPage() {
-		this.setState({ page: this.state.page - 1 });
+	updateState = (key, value) => {
+		this.setState({ [key]: value });
 	}
+	
 	onSubmit = () => {
-		alert('we did it');
+		console.log(this.state);
 	};
 
 	render() {
-		const { page } = this.state;
-		const { onSubmit } = this.props
-		console.log(this.state, this.props);
 		return (
-			<div>
-				{page === 1 && <WizardFormFirstPage handleSubmit={this.nextPage} />}
-				{page === 2 && <WizardFormSecondPage handlePrevious={this.previousPage} handleSubmit={this.nextPage} />}
-				{page === 3 && <WizardFormThirdPage handlePrevious={this.previousPage} handleSubmit={this.onSubmit} />}
-			</div>
-
+			<Switch>
+				<Route path="/kitchen" exact><WizardFormFirstPage updateState={this.updateState} /></Route>
+				<Route path="/kitchen/food" exact><WizardFormSecondPage updateState={this.updateState} /></Route>
+				<Route path="/kitchen/country" exact><WizardFormThirdPage updateState={this.updateState} /></Route>
+				<Route path="/kitchen/recipe" exact><WizardFormLastPage updateState={this.updateState} onSubmit={this.onSubmit} /></Route>
+			</Switch>
 		);
 	}
 }
