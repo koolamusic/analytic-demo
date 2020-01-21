@@ -9,6 +9,10 @@ import Converter from './views/Converter';
 import Wallet from './views/Wallet'
 import Chat from './views/Chat'
 
+import Login from '/imports/ui/views/Auth/Login'
+import Signup from './views/Auth/Signup';
+import Kitchen from './views/Kitchen'
+
 export default function AppRouter(this: any) {
     // const routeLocation = props.location
     useEffect((): void => {
@@ -24,6 +28,9 @@ export default function AppRouter(this: any) {
                         <li><Link href="/chat">Chat</Link> </li>
                         <li><Link href="/convert">Convert</Link> </li>
                         <li><Link href="/wallet">Wallet</Link></li>
+                        <li><Link href="/login">Login</Link></li>
+                        <li><Link href="/signup">Signup</Link></li>
+                        <li><Link href="/kitchen">Kitchen</Link></li>
                         <li><Link href="/users">Users <Icon name="external-link" mx="2px" />                            </Link>
                         </li>
                     </ul>
@@ -36,7 +43,10 @@ export default function AppRouter(this: any) {
                     <Route path="/convert"><Converter /></Route>
                     <Route path="/wallet"><Wallet /></Route>
                     <Route path="/users"><Users /></Route>
-                    <Route path="/"><App /></Route>
+                    <Route path="/kitchen"><Kitchen /></Route>
+                    <Route path='/login' component={Login} />
+                    <Route path='/signup' component={Signup} />
+                    <Route exact={true} path="/"><App /></Route>
                 </Switch>
             </div>
         </Router>
