@@ -12,10 +12,10 @@ export interface Task {
  */
 export interface Wallet {
 	_id?: string;
-	text: string;
+	balance: number;
+	prevBalance: number;
 	createdAt: Date;
 	owner: string;
-	username: string;
 }
 
 export interface Kitchen {
