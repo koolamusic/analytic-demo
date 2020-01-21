@@ -2,7 +2,6 @@ import React, { useState, ChangeEvent, DetailedHTMLProps, InputHTMLAttributes, R
 import { fx } from 'money';
 import { ButtonGroup, Button } from "@chakra-ui/core"
 
-const DEFAULT_FROM = 'GHC'
 interface FxRate {
     from: string,
     to: string
@@ -25,27 +24,31 @@ fx.rates = {
 
 
 const Converter: React.FC = () => {
+    const [input, setInput] = useState<any>(0)
     const [value, setValue] = useState<number>(0)
     const [exchange, setExchange] = useState<FxRate>(init)
-    console.log(value, exchange)
+    console.log(value, exchange, input)
 
     // Change event for input form
     let handleChange: ReactEventHandler = (e: ChangeEvent<HTMLInputElement>): void => {
         const input: number = parseFloat(e.target.value);
         const rate: number = input && !NaN ? fx.convert(parseFloat(e.target.value), exchange) : 'ERROR!!';
         setValue(rate)
+        setInput(input)
     }
 
-    let changeCurrency = (value: any) => {
-        console.log(fx.settings)
+    let changeCurrency = (value: string) => {
         const changeRate = exchange;
         changeRate.to = value;
-
         setExchange(changeRate)
-        console.log();
-    }
-    fx.settings = exchange;
+        console.log(value, exchange, input)
+        handleConversion()
 
+    }
+    let handleConversion = (): void => {
+        const convertedRate: number = input && !NaN ? fx.convert(parseFloat(input), exchange) : 'ERROR!!';
+        setValue(convertedRate)
+    }
 
     return (
         <div>
