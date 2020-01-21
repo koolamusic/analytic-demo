@@ -4,7 +4,7 @@ import { Link, Icon } from '@chakra-ui/core'
 
 // import components home
 import App from '/imports/ui/App'
-
+import Converter from './views/Converter/index';
 
 export default function AppRouter() {
     return (
@@ -16,7 +16,7 @@ export default function AppRouter() {
                             <Link href="/">Home</Link>
                         </li>
                         <li>
-                            <Link href="/about">About</Link>
+                            <Link href="/convert">Convert</Link>
                         </li>
                         <li>
                             <Link href="/users">
@@ -29,8 +29,8 @@ export default function AppRouter() {
                 {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
                 <Switch>
-                    <Route path="/about">
-                        <About />
+                    <Route path="/convert">
+                        <Converter />
                     </Route>
                     <Route path="/users">
                         <Users />
@@ -42,11 +42,6 @@ export default function AppRouter() {
             </div>
         </Router>
     );
-}
-
-
-function About() {
-    return <h2>About</h2>;
 }
 
 function Users() {

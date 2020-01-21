@@ -14,6 +14,7 @@
     "@emotion/styled": "^10.0.27",
     "emotion-theming": "^10.0.27",
     "meteor-node-stubs": "^1.0.0",
+    "money": "^0.2.0",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-router-dom": "^5.1.2"
@@ -24,6 +25,7 @@
     "@types/react": "^16.9.0",
     "@types/react-dom": "^16.9.0",
     "@types/react-router-dom": "^5.1.3",
+    "@types/segment-analytics": "0.0.32",
     "typescript": "^3.6.3"
   },
   "meteor": {

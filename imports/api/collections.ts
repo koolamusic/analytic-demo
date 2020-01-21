@@ -7,7 +7,9 @@ export interface Task {
 	owner: string;
 	username: string;
 }
-
+/**
+ * Use the interface to define the nature of the Collection and the Data it requires
+ */
 export interface Wallet {
 	_id?: string;
 	text: string;
