@@ -33,20 +33,24 @@ const Signup: React.FunctionComponent = (): any => {
         console.log(value)
     }
 
-    // const handleSubmit = () => {
-    //     Accounts.createUser({ username: value.username, password: value.password }, (err) => {
-    //         if (err) {
-    //             console.log(err);
-    //             alert('An Error Occured')
-    //         } else {
-    //             window.location.replace('/login');
-    //         }
-    //     });
-    // }
+    const handleSubmit = (e: any) => {
+        e.preventDefault()
+        const options = value
+        console.log("MEROS===>", options);
+        Accounts.createUser(options, (err) => {
+            if (err) {
+                console.log(err);
+                return alert('An Error Occured')
+            }
+            // else {
+            return window.location.replace('/');
+            // }
+        });
+    }
 
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={(e) => handleSubmit(e)}>
             <Stack spacing="6" >
                 <Input
                     size="lg"

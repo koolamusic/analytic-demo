@@ -4,6 +4,7 @@ import { render } from 'react-dom';
 import { ThemeProvider, CSSReset } from '@chakra-ui/core'
 import AppRouter from '/imports/ui/routes';
 import * as serviceWorker from '/imports/ui/serviceWorker'
+// import '../imports/startup/accounts-config.js';
 
 
 const Mount: React.FC = () => {

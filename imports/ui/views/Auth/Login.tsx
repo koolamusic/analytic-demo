@@ -1,5 +1,6 @@
 import React from 'react';
 import { InputGroup, Stack, Input, Button, InputRightElement } from '@chakra-ui/core'
+import { Meteor } from 'meteor/meteor';
 
 
 const Login: React.FunctionComponent = (): => {
@@ -32,33 +33,48 @@ const Login: React.FunctionComponent = (): => {
         console.log(value)
     }
 
+    const handleSubmit = (e: any) => {
+        e.preventDefault()
+        Meteor.loginWithPassword(value.username, value.password, (err: any): void => {
+            if (err) {
+                console.log({ err });
+                return alert('An Error Occured')
+            }
+            // else {
+            alert('SUCCESS')
+            // }
+        });
+    }
+
 
     return (
-        <Stack spacing="6" >
-            <Input
-                size="lg"
-                type={'username'}
-                onChange={(e: any) => handleChange('username', e)}
-                placeholder="Enter Username"
-            />
-
-            <InputGroup size="lg">
+        <form onSubmit={(e) => handleSubmit(e)}>
+            <Stack spacing="6" >
                 <Input
-                    pr="4.5rem"
                     size="lg"
-                    onChange={(e: any) => handleChange('password', e)}
-                    type={show ? "text" : "password"}
-                    placeholder="Enter password"
+                    type={'username'}
+                    onChange={(e: any) => handleChange('username', e)}
+                    placeholder="Enter Username"
                 />
-                <InputRightElement width="4.5rem">
-                    <Button h="1.75rem" size="sm" onClick={handleClick}>
-                        {show ? "Hide" : "Show"}
-                    </Button>
-                </InputRightElement>
-            </InputGroup>
 
-            <Button size='lg'>Signup</Button>
-        </Stack>
+                <InputGroup size="lg">
+                    <Input
+                        pr="4.5rem"
+                        size="lg"
+                        onChange={(e: any) => handleChange('password', e)}
+                        type={show ? "text" : "password"}
+                        placeholder="Enter password"
+                    />
+                    <InputRightElement width="4.5rem">
+                        <Button h="1.75rem" size="sm" onClick={handleClick}>
+                            {show ? "Hide" : "Show"}
+                        </Button>
+                    </InputRightElement>
+                </InputGroup>
+
+                <Button type="submit" size='lg'>Login</Button>
+            </Stack>
+        </form>
     );
 }
 

@@ -1,36 +1,64 @@
 import React, { Component } from 'react';
-import { withHistory, Link } from 'react-router-dom';
+import { withHistory } from 'react-router-dom';
+// import MainContainer from './MainContainer';
+import { Meteor } from 'meteor/meteor';
 
-interface IMain {
-    username: string
-    currentUser?: any;
-    [key: string]: any
-
-}
-
-export default class MainPage extends Component<{}, IMain>{
-    constructor(props: any) {
+export default class AppContainer extends Component {
+    constructor(props) {
         super(props);
-        this.state = {
-            username: ''
-        };
+        this.state = this.getMeteorData();
+        this.logout = this.logout.bind(this);
+    }
+
+    getMeteorData() {
+        return { isAuthenticated: Meteor.userId() !== null };
+    }
+
+    componentWillMount() {
+        if (!this.state.isAuthenticated) {
+            this.props.history.push('/login');
+        }
+    }
+
+    componentDidUpdate(prevProps, prevState) {
+        if (!this.state.isAuthenticated) {
+            this.props.history.push('/login');
+        }
+    }
+
+    logout(e) {
+        e.preventDefault();
+        Meteor.logout((err) => {
+            if (err) {
+                console.log(err.reason);
+            } else {
+                this.props.history.push('/login');
+            }
+        });
     }
 
     render() {
-        let currentUser = this.props.currentUser;
-        let userDataAvailable = (currentUser !== undefined);
-        let loggedIn = (currentUser && userDataAvailable);
+        console.log(this.state)
         return (
             <div>
-                <div className="container">
-                    <h1 className="text-center">
-                        {loggedIn ? 'Welcome ' + currentUser.username : ''}
-                    </h1>
-                </div>
+                <nav className="navbar navbar-default navbar-static-top">
+                    <div className="container">
+                        <div className="navbar-header">
+                            <a className="navbar-brand" href="#">Auth App</a>
+                        </div>
+                        <div className="navbar-collapse">
+                            <ul className="nav navbar-nav navbar-right">
+                                <li>
+                                    <a href="#" onClick={this.logout}>Logout</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+                {/* <MainContainer /> */}
             </div>
         );
     }
 }
-
 
 
