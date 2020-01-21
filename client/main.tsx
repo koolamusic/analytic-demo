@@ -1,10 +1,10 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import { render } from 'react-dom';
-// import theme from '/imports/lib/theme'
 import { ThemeProvider, CSSReset } from '@chakra-ui/core'
 import AppRouter from '/imports/ui/routes';
 import * as serviceWorker from '/imports/ui/serviceWorker'
+
 
 const Mount: React.FC = () => {
   return (

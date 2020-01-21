@@ -1,4 +1,4 @@
-import React, { useState, ChangeEvent, DetailedHTMLProps, InputHTMLAttributes, ReactEventHandler } from 'react';
+import React, { useState, ChangeEvent, ReactEventHandler } from 'react';
 import { fx } from 'money';
 import { ButtonGroup, Button } from "@chakra-ui/core"
 
