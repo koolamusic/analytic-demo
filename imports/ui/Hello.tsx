@@ -1,4 +1,5 @@
 import React from 'react';
+import { Button, ButtonGroup, Box, Avatar, AvatarBadge } from '@chakra-ui/core'
 
 export default class Hello extends React.Component {
   state = {
@@ -14,8 +15,25 @@ export default class Hello extends React.Component {
   render() {
     return (
       <div>
-        <button onClick={() => this.increment()}>Click Me</button>
-        <p>You've pressed the button {this.state.counter} times.</p>
+        <Box d="flex" flexDirection="column" alignItems="center" justifyContent="center">
+          <Avatar name="Kwame" >
+            <AvatarBadge size="1.25em" bg="green.500" />
+          </Avatar>
+
+          Hello Kwame
+        </Box>
+
+        <Box p="6" d="flex" flexDirection="column" alignItems="center">
+          <ButtonGroup size="lg" variant="outline">
+            <Button variantColor="green" >Currency Converter</Button>
+            <Button variantColor="green" >Chat Room</Button>
+            <Button variantColor="green" >Kitchen Menu</Button>
+            <Button variantColor="green" >Find Friends</Button>
+          </ButtonGroup>
+        </Box>
+        <section>
+
+        </section>
       </div>
     );
   }
