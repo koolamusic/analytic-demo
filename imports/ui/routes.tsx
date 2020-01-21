@@ -7,6 +7,7 @@ import * as Analytics from './analytics'
 import App from '/imports/ui/App'
 import Converter from './views/Converter';
 import Wallet from './views/Wallet'
+import Chat from './views/Chat'
 
 import Login from '/imports/ui/views/Auth/Login'
 import Signup from './views/Auth/Signup';
@@ -24,6 +25,7 @@ export default function AppRouter(this: any) {
                 <nav>
                     <ul>
                         <li><Link href="/">Home</Link></li>
+                        <li><Link href="/chat">Chat</Link> </li>
                         <li><Link href="/convert">Convert</Link> </li>
                         <li><Link href="/wallet">Wallet</Link></li>
                         <li><Link href="/login">Login</Link></li>
@@ -37,6 +39,7 @@ export default function AppRouter(this: any) {
                 {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
                 <Switch>
+                    <Route path="/chat"><Chat /></Route>
                     <Route path="/convert"><Converter /></Route>
                     <Route path="/wallet"><Wallet /></Route>
                     <Route path="/users"><Users /></Route>
