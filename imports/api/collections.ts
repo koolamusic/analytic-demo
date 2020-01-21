@@ -28,10 +28,10 @@ export interface Kitchen {
 
 export interface Chat {
 	_id?: string;
-	text: string;
-	createdAt: Date;
-	owner: string;
-	username: string;
+	name: string,
+	message: string,
+	createdAt: Date,
+	announcement?: boolean
 }
 
 export const Tasks = new Mongo.Collection<Task>('tasks');
