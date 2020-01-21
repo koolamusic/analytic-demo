@@ -1,57 +1,31 @@
-
-
 import React from 'react'
-import { Field, reduxForm } from 'redux-form'
-import validate from './validate'
-import renderField from './renderField'
+import { Input as Field, Button } from '@chakra-ui/core'
 
-const renderError = ({ meta: { touched, error } }) =>
-    touched && error ? <span>{error}</span> : false
+const FoodItem: React.FunctionComponent = (props: any) => {
+    const { handleSubmit, handlePrevious } = props
+    console.log(props);
 
-const WizardFormSecondPage = props => {
-    const { handleSubmit, previousPage } = props
     return (
         <form onSubmit={handleSubmit}>
-            <Field name="email" type="email" component={renderField} label="Email" />
+            <h1>PAGE TWOOOOOO</h1>
+
+            <Field
+                name="firstName"
+                type="text"
+                size="lg"
+                placeholder="First Name"
+            />
+            <Field
+                name="lastName"
+                type="text"
+                size="lg"
+                placeholder="Last Name"
+            />
             <div>
-                <label>Sex</label>
-                <div>
-                    <label>
-                        <Field
-                            name="sex"
-                            component="input"
-                            type="radio"
-                            value="male"
-                        />{' '}
-                        Male
-          </label>
-                    <label>
-                        <Field
-                            name="sex"
-                            component="input"
-                            type="radio"
-                            value="female"
-                        />{' '}
-                        Female
-          </label>
-                    <Field name="sex" component={renderError} />
-                </div>
-            </div>
-            <div>
-                <button type="button" className="previous" onClick={previousPage}>
-                    Previous
-        </button>
-                <button type="submit" className="next">
-                    Next
-        </button>
+                <Button type="submit" className="next">   Next </Button>
             </div>
         </form>
     )
 }
 
-export default reduxForm({
-    form: 'wizard', //Form name is same
-    destroyOnUnmount: false,
-    forceUnregisterOnUnmount: true, // <------ unregister fields on unmount
-    validate
-})(WizardFormSecondPage)
+export default FoodItem

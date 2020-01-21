@@ -2,9 +2,15 @@ import React from 'react'
 import { Input as Field, Button } from '@chakra-ui/core'
 
 const WizardFormFirstPage: React.FunctionComponent = (props: any) => {
-    const { handleSubmit } = props
+    const onSubmit = (e: any): void => {
+        e.preventDefault()
+        console.log(props);
+        return props.handleSubmit(e)
+    }
+
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={onSubmit}>
+            <h1>PAGE ONE</h1>
             <Field
                 name="firstName"
                 type="text"

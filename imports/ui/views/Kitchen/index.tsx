@@ -1,11 +1,11 @@
-import { Component } from 'react';
+import React, { Component } from 'react';
 
 import WizardFormFirstPage from './MenuItem';
 import WizardFormSecondPage from './FoodItem';
 import WizardFormThirdPage from './OriginForm';
 import WizardFormLastPage from './RecipeForm';
 
-export default class WizardForm extends Component {
+export default class Kitchen extends Component {
 	constructor(props: any) {
 		super(props);
 		this.nextPage = this.nextPage.bind(this);
@@ -14,7 +14,8 @@ export default class WizardForm extends Component {
 			page: 1
 		};
 	}
-	nextPage() {
+	nextPage(e) {
+		e.preventDefault()
 		this.setState({ page: this.state.page + 1 });
 	}
 
@@ -27,11 +28,13 @@ export default class WizardForm extends Component {
 
 	render() {
 		const { page } = this.state;
+		const { onSubmit } = this.props
+		console.log(this.state, this.props);
 		return (
 			<div>
-				{page === 1 && <WizardFormFirstPage onSubmit={this.nextPage} />}
-				{page === 2 && <WizardFormSecondPage previousPage={this.previousPage} onSubmit={this.nextPage} />}
-				{page === 3 && <WizardFormThirdPage previousPage={this.previousPage} onSubmit={this.onSubmit} />}
+				{page === 1 && <WizardFormFirstPage handleSubmit={this.nextPage} />}
+				{page === 2 && <WizardFormSecondPage handlePrevious={this.previousPage} handleSubmit={this.nextPage} />}
+				{page === 3 && <WizardFormThirdPage handlePrevious={this.previousPage} handleSubmit={this.onSubmit} />}
 			</div>
 
 		);
