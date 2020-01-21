@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, ButtonGroup, Box, Avatar, AvatarBadge } from '@chakra-ui/core'
+import { Button, ButtonGroup, Stack, Box, Avatar, AvatarBadge } from '@chakra-ui/core'
 
 export default class Hello extends React.Component {
   state = {
@@ -19,22 +19,16 @@ export default class Hello extends React.Component {
           <Avatar name="Kwame" >
             <AvatarBadge size="1.25em" bg="green.500" />
           </Avatar>
-
           Hello Kwame
         </Box>
 
-        <Box p="6" d="flex" flexDirection="column" alignItems="center">
-          <ButtonGroup size="lg" variant="outline">
-            <Button variantColor="green" >Currency Converter</Button>
-            <Button variantColor="green" >Chat Room</Button>
-            <Button variantColor="green" >Kitchen Menu</Button>
-            <Button variantColor="green" >Find Friends</Button>
-            <Button variantColor="green" >Fund Wallet</Button>
-          </ButtonGroup>
-        </Box>
-        <section>
-
-        </section>
+        <Stack spacing={3}>
+          <Button variant="outline" size="lg" variantColor="green" >Currency Converter</Button>
+          <Button variant="outline" size="lg" variantColor="green" >Chat Room</Button>
+          <Button variant="outline" size="lg" variantColor="green" >Kitchen Menu</Button>
+          <Button variant="outline" size="lg" variantColor="green" >Find Friends</Button>
+          <Button variant="outline" size="lg" variantColor="green" >Fund Wallet</Button>
+        </Stack>
       </div>
     );
   }

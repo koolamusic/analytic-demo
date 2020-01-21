@@ -1,16 +1,23 @@
 import React from 'react'
 import { Button } from '@chakra-ui/core'
+import CountUp from 'react-countup'
 
-// interface WalletState {
-//     balance: number
-// }
+interface WalletState {
+    initialBalance: number,
+    balance: number
+}
 export default class Wallet extends React.Component {
-    constructor(props: any) {
-        super(props)
-        this.state = {
-            balance: 25455
-        }
+    state: WalletState = {
+        initialBalance: 10,
+        balance: 25455
     }
+
+    // componentDidMount () {
+    //     const script = document.createElement("script");
+    //     script.src = "https://use.typekit.net/foobar.js";
+    //     script.async = true;
+    //     document.body.appendChild(script);
+    // }
 
     generateFunds = (): void => {
         const RANDOM = [12, 15, 90, 3, 312, 313, 90, 3, 32];
@@ -27,13 +34,28 @@ export default class Wallet extends React.Component {
         // Should Call a Meteor Method to Update user Wallet
     }
     render() {
-        const { balance } = this.state
+        const { initialBalance, balance } = this.state
         return (
             <div>
                 <h1>Your Wallet</h1>
                 <h4>You currently have</h4>
-                <h1>{balance}</h1>
                 <p>in your account</p>
+
+                <CountUp
+                    className="account-balance"
+                    start={initialBalance}
+                    end={balance}
+                    duration={1}
+                    delay={0}
+                    separator=", "
+                    decimals={2}
+                    decimal="."
+                    prefix="₵ "
+                    suffix=" in your wallet"
+                    onEnd={() => console.log('Ended! 👏')}
+                    onStart={() => console.log('Started! 💨')}
+                />
+
                 <section>
                     <Button onClick={this.generateFunds}>Fund your Wallet</Button>
                 </section>
