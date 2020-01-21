@@ -30,6 +30,7 @@ class Info extends React.Component<{
 
 export default withTracker(() => {
   Meteor.subscribe('links')
+  console.log(Links.find().fetch())
   return {
     links: Links.find().fetch(),
   };
