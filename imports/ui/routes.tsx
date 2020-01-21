@@ -1,5 +1,6 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Link as RRLink } from "react-router-dom";
+import { Link, Icon } from '@chakra-ui/core'
 
 // import components home
 import App from '/imports/ui/App'
@@ -12,13 +13,15 @@ export default function AppRouter() {
                 <nav>
                     <ul>
                         <li>
-                            <Link to="/">Home</Link>
+                            <Link href="/">Home</Link>
                         </li>
                         <li>
-                            <Link to="/about">About</Link>
+                            <Link href="/about">About</Link>
                         </li>
                         <li>
-                            <Link to="/users">Users</Link>
+                            <Link href="/users">
+                                Users <Icon name="external-link" mx="2px" />
+                            </Link>
                         </li>
                     </ul>
                 </nav>

@@ -29,6 +29,7 @@ export default class Hello extends React.Component {
             <Button variantColor="green" >Chat Room</Button>
             <Button variantColor="green" >Kitchen Menu</Button>
             <Button variantColor="green" >Find Friends</Button>
+            <Button variantColor="green" >Fund Wallet</Button>
           </ButtonGroup>
         </Box>
         <section>
