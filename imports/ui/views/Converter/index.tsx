@@ -1,6 +1,6 @@
 import React, { useState, ChangeEvent, ReactEventHandler } from 'react';
 import { fx } from 'money';
-import { ButtonGroup, Button } from "@chakra-ui/core"
+import { Input, ButtonGroup, Button } from "@chakra-ui/core"
 
 interface FxRate {
     from: string,
@@ -59,9 +59,8 @@ const Converter: React.FC = () => {
                 <Button onClick={() => changeCurrency('CFA')}>CFA</Button>
             </ButtonGroup>
             <h3>{value}</h3>
-            <form>
-                <input type="tel" placeholder="input todo" onChange={e => handleChange(e)} />
-                <Button type="submit">Convert</Button>
+            <form onSubmit={handleConversion}>
+                <Input type="tel" placeholder="input todo" onChange={e => handleChange(e)} />
             </form>
         </div>
     )
