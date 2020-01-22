@@ -6,6 +6,7 @@ import WizardFormFirstPage from './MenuItem';
 import WizardFormSecondPage from './FoodItem';
 import WizardFormThirdPage from './OriginForm';
 import WizardFormLastPage from './RecipeForm';
+import * as Analytics from '/imports/ui/analytics'
 
 export default class Kitchen extends Component {
 	constructor(props: any) {
@@ -19,12 +20,15 @@ export default class Kitchen extends Component {
 		}
 	}
 
-	updateState = (key, value) => {
+	updateState = (key: string, value: string) => {
 		this.setState({ [key]: value });
 	}
-	
-	onSubmit = () => {
+
+	onSubmit = async () => {
 		console.log(this.state);
+		await Analytics.track('Submit Food Menu', this.state);
+		alert('Thank you')
+		window.location.replace('/kitchen')
 	};
 
 	render() {

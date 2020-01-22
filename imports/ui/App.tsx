@@ -21,7 +21,6 @@ export default class App extends React.Component<{}, AppProps> {
   render() {
     return (
       <div>
-        <h1>Welcome Home!</h1>
         <Hello />
       </div>
 
