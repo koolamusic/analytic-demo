@@ -13,12 +13,13 @@ const OriginForm: React.FunctionComponent = (props: any) => {
             <Select placeholder="Select Your Country" onChange={e => {
                 props.updateState('country', e.target.value);
             }}>
-                <option value="GH">Ghana</option>
+                <option value="CM">Benin Republic</option>
                 <option value="CM">Cameroon</option>
-                <option value="CM">Kenya</option>
                 <option value="CM">Cote D' Ivoire</option>
-                <option value="CM">South Africa</option>
+                <option value="GH">Ghana</option>
+                <option value="CM">Kenya</option>
                 <option value="NG">Nigeria</option>
+                <option value="CM">South Africa</option>
             </Select>
             <br />
             <Button type="button" className="next" onClick={() => {
