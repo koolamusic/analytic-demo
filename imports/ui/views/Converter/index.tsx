@@ -32,7 +32,7 @@ const Converter: React.FC = () => {
     // Change event for input form
     let handleChange: ReactEventHandler = (e: ChangeEvent<HTMLInputElement>): void => {
         const input: number = parseFloat(e.target.value);
-        const rate: number = input && !NaN ? fx.convert(parseFloat(e.target.value), exchange) : 'ERROR!!';
+        const rate: number = input && !NaN ? fx.convert(parseFloat(e.target.value), exchange) : '0';
         setValue(rate)
         setInput(input)
     }
@@ -46,7 +46,7 @@ const Converter: React.FC = () => {
 
     }
     let handleConversion = (): void => {
-        const convertedRate: number = input && !NaN ? fx.convert(parseFloat(input), exchange) : 'ERROR!!';
+        const convertedRate: number = input && !NaN ? fx.convert(parseFloat(input), exchange) : '0';
         setValue(convertedRate)
     }
 

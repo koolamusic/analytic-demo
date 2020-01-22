@@ -34,6 +34,15 @@ const NavLink = styled.li`
     list-style: none;
     color: white;
     `
+
+const DrawerLink = styled.li`
+    text-decoration: none;
+    padding: 10px 5px;
+    font-weight: bold;
+    list-style: none;
+    color: white;
+    border-bottom: 1px solid #2d925c;
+    `
 const NavWrapper = styled.ul`
     text-decoration: none;
     position: relative;
@@ -44,11 +53,15 @@ const NavWrapper = styled.ul`
     padding: .5rem;
 
 `
+const ExtDrawerContent = styled(DrawerContent)`
+    background-color: #38a169;
+`
 
 export default function AppRouter(this: any) {
     // const routeLocation = props.location
     useEffect((): void => {
         this.window && Analytics.page()
+        this.window && window.analytics.identify("andrew")
     })
 
     return (
@@ -100,25 +113,25 @@ function AppDrawer() {
                 finalFocusRef={btnRef}
             >
                 <DrawerOverlay />
-                <DrawerContent>
+                <ExtDrawerContent>
                     <DrawerCloseButton />
                     <DrawerHeader>Navigation</DrawerHeader>
 
                     <DrawerBody>
-                        <NavLink><Link href="/">Home</Link></NavLink>
-                        <NavLink><Link href="/chat">Chat</Link> </NavLink>
-                        <NavLink><Link href="/convert">Convert</Link> </NavLink>
-                        <NavLink><Link href="/wallet">Wallet</Link></NavLink>
-                        <NavLink><Link href="/kitchen">Kitchen</Link></NavLink>
-                        <NavLink><Link href="/login">Login</Link></NavLink>
-                        <NavLink><Link href="/signup">Signup<Icon name="external-link" mx="2px" /></Link></NavLink>
-                        <NavLink><Link href="/friends">Friends <Icon name="external-link" mx="2px" /></Link></NavLink>
+                        <DrawerLink><Link href="/">Home</Link></DrawerLink>
+                        <DrawerLink><Link href="/chat">Chat</Link> </DrawerLink>
+                        <DrawerLink><Link href="/convert">Convert</Link> </DrawerLink>
+                        <DrawerLink><Link href="/wallet">Wallet</Link></DrawerLink>
+                        <DrawerLink><Link href="/kitchen">Kitchen</Link></DrawerLink>
+                        <DrawerLink><Link href="/login">Login</Link></DrawerLink>
+                        <DrawerLink><Link href="/signup">Signup<Icon name="external-link" mx="2px" /></Link></DrawerLink>
+                        <DrawerLink><Link href="/friends">Friends <Icon name="external-link" mx="2px" /></Link></DrawerLink>
                     </DrawerBody>
 
                     {/* <DrawerFooter>
                         <h1>Element Here</h1>
                     </DrawerFooter> */}
-                </DrawerContent>
+                </ExtDrawerContent>
             </Drawer>
         </>
     );
