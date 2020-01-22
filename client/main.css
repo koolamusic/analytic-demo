@@ -18,6 +18,13 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, 'Neue Einstellung', "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
 }
 
+@media (min-width: 620px) {
+  body {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+}
+
 * {
   box-sizing: border-box;
 }
