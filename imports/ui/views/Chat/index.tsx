@@ -1,15 +1,28 @@
 import React, { useState } from 'react';
 import { InputGroup, Input, InputRightElement, Button, Box, Heading } from '@chakra-ui/core';
 import styled from '@emotion/styled'
-import Wrapper from '../../Layout';
+import Message from './Message'
 
 const InputWrapper = styled.div`
-    position: absolute;
+    position: fixed;
     bottom: 3px;
     max-height: 80px;
     padding: 3px;
+    width: 100%;
     border-top: 1px solid #ddd;
     margin: 0;
+    left: 0
+`
+const MessageBox = styled.div`
+    position: relative;
+    margin-top: 1rem;
+    display: block;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 80px;
+    overflow: none;
+
 `
 
 const Announcement = styled.div`
@@ -19,6 +32,7 @@ const Announcement = styled.div`
 `
 const MessageWrapper = styled.div`
     position: relative;
+    display: block;
 `
 
 const Chat: React.FC = () => {
@@ -46,6 +60,11 @@ const Chat: React.FC = () => {
                         </div>
                     </Announcement>
                 </Box>
+                {/* 
+                <MessageBox>
+                    <Message />
+                </MessageBox> */}
+
             </MessageWrapper>
 
 
