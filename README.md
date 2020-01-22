@@ -1,0 +1,28 @@
+# TODO 
+
+
+Signup 
+IDENTIFY[USERNAME]
+TRACK[NEW USER SIGNUP]
+
+Login
+IDENTIFY[USERNAME]
+TRACK[ENGAGED USER]
+
+Money Converter
+TRACK [CURRENCY SELECTED, AMOUNT] -
+
+
+Kitchen App [FUNNEL]
+Drop off
+Track Completion & Reward as premium [TRACK]
+Track Stages [IDENTIFY, TRACK]
+
+
+Wallet
+TRACK[FUND WALLET, AMOUNT], [IDENTIFY]
+
+
+Chat
+TRACK[SEND MESSAGE, MESSAGE]
+
