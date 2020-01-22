@@ -102,7 +102,7 @@ function AppDrawer() {
                 <DrawerOverlay />
                 <DrawerContent>
                     <DrawerCloseButton />
-                    <DrawerHeader>Create your account</DrawerHeader>
+                    <DrawerHeader>Navigation</DrawerHeader>
 
                     <DrawerBody>
                         <NavLink><Link href="/">Home</Link></NavLink>

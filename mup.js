@@ -2,7 +2,7 @@ module.exports = {
 	servers: {
 		one: {
 			// TODO: set host address, username, and authentication method
-			host: '172.105.74.51',
+			host: '172.105.75.130',
 			username: 'root'
 			// pem: './path/to/pem'
 			// password: 'GtnsxmBpZt2ijeW'
@@ -12,7 +12,7 @@ module.exports = {
 
 	app: {
 		// TODO: change app name and path
-		name: 'eit-app',
+		name: 'app',
 		path: '../',
 
 		servers: {
