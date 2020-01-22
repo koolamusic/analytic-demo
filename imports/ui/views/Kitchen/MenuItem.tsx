@@ -2,9 +2,12 @@ import React from 'react'
 import { useHistory } from 'react-router-dom';
 
 import { RadioGroup, Radio, Box, Heading, Button } from '@chakra-ui/core'
+import * as Analytics from '/imports/ui/analytics';
 
 const WizardFormFirstPage: React.FunctionComponent = (props: any) => {
     const history = useHistory();
+
+    const [menu, setMenu] = React.useState<string>('');
 
     return (
         <Box p={4}>
@@ -13,6 +16,7 @@ const WizardFormFirstPage: React.FunctionComponent = (props: any) => {
             <br />
             <RadioGroup onChange={e => {
                 props.updateState('menu', e.target.value);
+                setMenu(e.target.value);
             }}>
                 <Radio value="breakfast">BreakFast</Radio>
                 <Radio value="lunch">Lunch</Radio>
@@ -20,6 +24,7 @@ const WizardFormFirstPage: React.FunctionComponent = (props: any) => {
             </RadioGroup>
             <br />
             <Button type="button" className="next" onClick={() => {
+                Analytics.track("Menu Item", { menu });
                 history.push('/kitchen/food');
             }}>Next</Button>
         </Box>

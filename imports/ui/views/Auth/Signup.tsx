@@ -1,6 +1,7 @@
 import React, { ChangeEvent } from 'react';
 import { InputGroup, Box, Link, Stack, Input, Button, InputRightElement } from '@chakra-ui/core'
 import { Accounts } from 'meteor/accounts-base';
+import * as Analytics from '/imports/ui/analytics'
 
 
 const Signup: React.FunctionComponent = (): any => {
@@ -36,6 +37,8 @@ const Signup: React.FunctionComponent = (): any => {
     const handleSubmit = (e: any) => {
         e.preventDefault()
         const options = value
+        Analytics.identify(options.username)
+        Analytics.track("New User Signup", options)
         console.log("MEROS===>", options);
         Accounts.createUser(options, (err) => {
             if (err) {

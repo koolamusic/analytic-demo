@@ -1,6 +1,7 @@
 import React from 'react';
 import { InputGroup, Stack, Box, Link, Input, Button, InputRightElement } from '@chakra-ui/core'
 import { Meteor } from 'meteor/meteor';
+import * as Analytics from '/imports/ui/analytics';
 
 
 const Login: React.FunctionComponent = (): => {
@@ -35,10 +36,12 @@ const Login: React.FunctionComponent = (): => {
 
     const handleSubmit = (e: any) => {
         e.preventDefault()
+        Analytics.identify(value.username)
+        Analytics.track("Engaged User", value)
         Meteor.loginWithPassword(value.username, value.password, (err: any): void => {
             if (err) {
                 console.log({ err });
-                return alert('An Error Occured')
+                // return alert('An Error Occured')
             }
             // else {
             alert('SUCCESS')

@@ -34,10 +34,10 @@ export default class Kitchen extends Component {
 	render() {
 		return (
 			<Switch>
-				<Route path="/kitchen" exact><WizardFormFirstPage updateState={this.updateState} /></Route>
-				<Route path="/kitchen/food" exact><WizardFormSecondPage updateState={this.updateState} /></Route>
-				<Route path="/kitchen/country" exact><WizardFormThirdPage updateState={this.updateState} /></Route>
-				<Route path="/kitchen/recipe" exact><WizardFormLastPage updateState={this.updateState} onSubmit={this.onSubmit} /></Route>
+				<Route path="/kitchen" exact><WizardFormFirstPage data={this.state} updateState={this.updateState} /></Route>
+				<Route path="/kitchen/food" exact><WizardFormSecondPage data={this.state} updateState={this.updateState} /></Route>
+				<Route path="/kitchen/country" exact><WizardFormThirdPage data={this.state} updateState={this.updateState} /></Route>
+				<Route path="/kitchen/recipe" exact><WizardFormLastPage data={this.state} updateState={this.updateState} onSubmit={this.onSubmit} /></Route>
 			</Switch>
 		);
 	}

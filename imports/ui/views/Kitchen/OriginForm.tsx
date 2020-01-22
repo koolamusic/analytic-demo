@@ -2,6 +2,7 @@ import React from 'react'
 import { useHistory } from 'react-router-dom';
 
 import { Button, Select, Box, Heading } from '@chakra-ui/core'
+import * as Analytics from '/imports/ui/analytics'
 
 const OriginForm: React.FunctionComponent = (props: any) => {
     const history = useHistory();
