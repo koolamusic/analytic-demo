@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button } from '@chakra-ui/core'
+import { Button, Heading, Box } from '@chakra-ui/core'
 import CountUp from 'react-countup'
 
 interface WalletState {
@@ -36,30 +36,35 @@ export default class Wallet extends React.Component {
     render() {
         const { initialBalance, balance } = this.state
         return (
-            <div>
-                <h1>Your Wallet</h1>
+            <Box justifyContent="center" alignItems="center">
+                <Box my="4">
+                    <Heading as="h4">Your Wallet</Heading>
+                </Box>
+
                 <h4>You currently have</h4>
-                <p>in your account</p>
 
-                <CountUp
-                    className="account-balance"
-                    start={initialBalance}
-                    end={balance}
-                    duration={1}
-                    delay={0}
-                    separator=", "
-                    decimals={2}
-                    decimal="."
-                    prefix="₵ "
-                    suffix=" in your wallet"
-                    onEnd={() => console.log('Ended! 👏')}
-                    onStart={() => console.log('Started! 💨')}
-                />
+                <Heading as="h1" size="2xl">
+                    <CountUp
+                        className="account-balance"
+                        start={initialBalance}
+                        end={balance}
+                        duration={1}
+                        delay={0}
+                        separator=", "
+                        decimals={2}
+                        decimal="."
+                        prefix="₵ "
+                        // suffix=" in your wallet"
+                        onEnd={() => console.log('Ended! 👏')}
+                        onStart={() => console.log('Started! 💨')}
+                    />
+                </Heading>
+                <p>in your wallet</p>
 
-                <section>
-                    <Button onClick={this.generateFunds}>Fund your Wallet</Button>
-                </section>
-            </div>
+                <Box my="6">
+                    <Button variantColor="green" onClick={this.generateFunds}>Fund your Wallet</Button>
+                </Box>
+            </Box>
         )
     }
 }

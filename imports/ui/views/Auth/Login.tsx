@@ -1,5 +1,5 @@
 import React from 'react';
-import { InputGroup, Stack, Input, Button, InputRightElement } from '@chakra-ui/core'
+import { InputGroup, Stack, Box, Link, Input, Button, InputRightElement } from '@chakra-ui/core'
 import { Meteor } from 'meteor/meteor';
 
 
@@ -48,33 +48,37 @@ const Login: React.FunctionComponent = (): => {
 
 
     return (
-        <form onSubmit={(e) => handleSubmit(e)}>
-            <Stack spacing="6" >
-                <Input
-                    size="lg"
-                    type={'username'}
-                    onChange={(e: any) => handleChange('username', e)}
-                    placeholder="Enter Username"
-                />
+        <Box my="6">
 
-                <InputGroup size="lg">
+            <form onSubmit={(e) => handleSubmit(e)}>
+                <Stack spacing="6" >
                     <Input
-                        pr="4.5rem"
                         size="lg"
-                        onChange={(e: any) => handleChange('password', e)}
-                        type={show ? "text" : "password"}
-                        placeholder="Enter password"
+                        type={'username'}
+                        onChange={(e: any) => handleChange('username', e)}
+                        placeholder="Enter Username"
                     />
-                    <InputRightElement width="4.5rem">
-                        <Button h="1.75rem" size="sm" onClick={handleClick}>
-                            {show ? "Hide" : "Show"}
-                        </Button>
-                    </InputRightElement>
-                </InputGroup>
 
-                <Button type="submit" size='lg'>Login</Button>
-            </Stack>
-        </form>
+                    <InputGroup size="lg">
+                        <Input
+                            pr="4.5rem"
+                            size="lg"
+                            onChange={(e: any) => handleChange('password', e)}
+                            type={show ? "text" : "password"}
+                            placeholder="Enter password"
+                        />
+                        <InputRightElement width="4.5rem">
+                            <Button h="1.75rem" size="sm" onClick={handleClick}>
+                                {show ? "Hide" : "Show"}
+                            </Button>
+                        </InputRightElement>
+                    </InputGroup>
+
+                    <Button width="100%" variantColor="green" type="submit" size='lg'>Login</Button>
+                    <Link href="/signup">Don't have an account, Create one</Link>
+                </Stack>
+            </form>
+        </Box>
     );
 }
 
