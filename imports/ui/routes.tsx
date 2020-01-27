@@ -61,7 +61,7 @@ export default function AppRouter(this: any) {
     // const routeLocation = props.location
     useEffect((): void => {
         this.window && Analytics.page()
-        this.window && window.analytics.identify("andrew")
+        this.window && window.analytics.identify()
     })
 
     return (
